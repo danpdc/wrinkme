@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WrinkMe.Domain\WrinkMe.Domain.csproj" />
+    <ProjectReference Include="..\WrinkMe.Services\WrinkMe.Services.csproj" />
+  </ItemGroup>
+
+</Project>

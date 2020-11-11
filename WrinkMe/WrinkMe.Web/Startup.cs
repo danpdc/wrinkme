@@ -13,6 +13,7 @@ using Microsoft.Extensions.Primitives;
 using WrinkMe.Domain.Interfaces;
 using WrinkMe.Services;
 using WrinkMe.Web.Data;
+using WrinkMe.Web.Middleware;
 
 namespace WrinkMe.Web
 {
@@ -32,7 +33,9 @@ namespace WrinkMe.Web
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddTransient<IUserAgentService, UserAgentService>();
+            services.AddScoped<IUserAgentService, UserAgentService>();
+            services.AddTransient<IUrlShorteningService, UrlShorteningService>();
+            services.AddSingleton<DummyDb>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,25 +55,7 @@ namespace WrinkMe.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.Use((req, next) => {
-
-                var uaParser = app.ApplicationServices.GetRequiredService<IUserAgentService>();
-                var uaHeader = StringValues.Empty;
-                req.Request.Headers.TryGetValue("User-Agent", out uaHeader);
-                var parsedUserAgent = uaParser.ParseUserAgent(uaHeader);
-
-                switch (req.Request.Path.ToString())
-                {
-                    case "/":
-                        return next();
-                    case "/admin":
-                        return next();
-                    default: req.Response.Redirect("https://github.com/danpdc/wrinkme");
-                        break;
-                }
-
-                return next();
-            });
+            app.UseShortUrlRedirect();
 
             app.UseRouting();
 

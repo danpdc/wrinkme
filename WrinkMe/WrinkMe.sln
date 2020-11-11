@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dal", "Dal", "{D8D4CEA8-62E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{AD6487DA-87B5-40C7-8039-0672E801D391}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrinkMe.Web", "WrinkMe.Web\WrinkMe.Web.csproj", "{1BFD6B93-C703-4144-B755-FDDDA928E789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkMe.Web", "WrinkMe.Web\WrinkMe.Web.csproj", "{1BFD6B93-C703-4144-B755-FDDDA928E789}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrinkMe.Domain", "WrinkMe.Domain\WrinkMe.Domain.csproj", "{D7D5063A-5DCF-4670-A734-0AEC883BFBDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkMe.Domain", "WrinkMe.Domain\WrinkMe.Domain.csproj", "{D7D5063A-5DCF-4670-A734-0AEC883BFBDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{CA3D1CB0-0193-49B5-98EA-E4C7E6AA6C74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrinkMe.Services", "WrinkMe.Services\WrinkMe.Services.csproj", "{1054E697-0516-4E6F-9D8D-979DBF996BD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkMe.Services", "WrinkMe.Services\WrinkMe.Services.csproj", "{1054E697-0516-4E6F-9D8D-979DBF996BD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

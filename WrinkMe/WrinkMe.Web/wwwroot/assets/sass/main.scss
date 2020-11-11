@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Open+Sans:ital@0;1&display=swap');
+/*
+Template Name: Cortaly - URL Shortner HTML Template
+Template URI: http://pixner.net/cortaly/
+Author: uiaxis
+Author URI: https://themeforest.net/user/uiaxis
+Version: 1.0.0
+Text Domain: 
+*/
+/*
+///// CSS Index \\
+01. Reset CSS Start
+---------------------------
+02. General CSS
+---------------------------
+03. Section Header CSS
+---------------------------
+04. Contact Section CSS
+---------------------------
+04. Footer  Section CSS
+---------------------------
+04. Header Section CSS
+---------------------------
+04. Banner  Section CSS
+---------------------------
+04. Blog-Sedebar Section CSS
+---------------------------
+04. Testimonial  Section CSS
+---------------------------
+04. How  Section CSS
+---------------------------
+04. Feature  Section CSS
+---------------------------
+04. Why  Section CSS
+---------------------------
+04. Publisher  Section CSS
+---------------------------
+04. Payout  Section CSS
+---------------------------
+04. Faq  Section CSS
+---------------------------
+04. Account  Section CSS
+---------------------------
+04. Sponsor Slider Section CSS
+---------------------------
+04. All Animations Section CSS
+---------------------------
+04. Leave-Comment Section CSS
+---------------------------
+04. BLog Details Section CSS
+---------------------------
+*/
+@import '_abstracts/_mixins';
+@import '_abstracts/_variables';
+@import '_base/_reset';
+@import '_base/_global';
+@import '_base/_typography';
+@import '_base/_about';
+@import '_layout/_footer';
+@import '_layout/_forms';
+@import '_layout/_header';
+@import '_layout/_banner';
+@import '_layout/_sidebar';
+@import '_layout/_section';
+@import '_layout/_animation';
+@import '_layout/_blog';
+@import '_components/_buttons';

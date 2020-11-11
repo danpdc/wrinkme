@@ -1,0 +1,6 @@
+﻿
+<h3 class="subtitle">Shorten URL Is Just Simple</h3>
+<EditForm Model="Url" class="banner-form" OnValidSubmit="ShortenUrl">
+    <input type="text" placeholder="Your URL here" name="url" required @bind-value="Url.Value">
+    <button type="submit">Shorten <i class="flaticon-startup"></i></button>
+</EditForm>

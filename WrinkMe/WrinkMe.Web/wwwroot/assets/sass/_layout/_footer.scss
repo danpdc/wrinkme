@@ -1,0 +1,245 @@
+
+
+/*Contact Section Starts Here*/
+.cl-white-499.section-header {
+    @media screen and (max-width:499px) {
+        * {
+            color: $white-color;
+        }
+        span, p, ul li {
+            color: rgba($color:$white-color, $alpha:.8);
+        }
+    }
+}
+.cl-white-499 {
+    @media screen and (max-width:499px) {
+        * {
+            color: $white-color;
+        }
+        span, p, ul li {
+            color: rgba($color:$white-color, $alpha:.8);
+        }
+    }
+}
+.contact-form {
+    max-width: 540px ;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0px 5px 49px 0px rgba(51, 42, 147, 0.54);      
+    border: 1px solid rgba($color:$white-color, $alpha:.1);
+    padding: 40px 35px 45px;
+    .form-group {
+        margin-bottom: 25px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        input {
+            height: 60px;
+            @include border-radius(30px);
+            padding-left: 30px;
+            background: $white-color;
+            box-shadow: inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff;
+            -webkit-box-shadow: inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff;
+            border: none;
+            font-size: 16px;
+            &::placeholder {
+                color: #6180c0;
+            }
+        }
+        textarea {
+            height: 140px;
+            padding-top: 25px;
+            padding-left: 30px;
+            @include border-radius(30px);
+            background: $white-color;
+            box-shadow: inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff;
+            -webkit-box-shadow: inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff, inset 0 0 6px #00a2ff;
+            border: none;
+            font-size: 16px;
+            &::placeholder {
+                color: #6180c0;
+            }
+        }
+        button {
+            background: -moz-linear-gradient( -100deg, rgb(45,56,225) 0%, rgb(3,198,252) 84%);
+            background: -webkit-linear-gradient( -100deg, rgb(45,56,225) 0%, rgb(3,198,252) 84%);
+            background: -ms-linear-gradient( -100deg, rgb(45,56,225) 0%, rgb(3,198,252) 84%);
+            box-shadow: -1.045px 9.945px 16px 0px rgba(29, 47, 112, 0.3);       
+            font-size: 16px;
+            font-weight: 400;       
+            text-transform: uppercase;
+            color: $white-color;
+            padding: 3px 60px 0;
+            border: none;
+            @include border-radius(30px);
+            width: auto;
+            height: 60px;
+        }
+        &.check-group {
+            display: flex;
+            input {
+                width: 24px;
+                height: 24px;
+                @include border-radius(5px);
+                box-shadow: -5px 5px 15px rgba(51, 42, 147, 0.54);
+                -webkit-box-shadow: -5px 5px 15px rgba(51, 42, 147, 0.54);
+            }
+            label {
+                width: calc(100% - 24px);
+                padding-left: 10px;
+                font-size: 16px;
+                line-height: 24px;
+                color: #686da1;
+            }
+        }
+    }
+    background: $white-color;
+    margin-bottom: 80px;
+    @include breakpoint(lg) {
+        margin-bottom: 120px;
+    }
+    @media screen and (max-width:499px) {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        padding: 0;
+        background: transparent;
+        border: none;
+        margin-bottom: 70px;
+        .form-group {
+            label {
+                font-size: 16px;
+                color: rgba($color:$white-color, $alpha:.9) !important;
+            }
+            button {    
+                background: -webkit-linear-gradient(-103deg, #ef774c 0%, #ed684f 35%, #e84351 76%, #e73351 100%);
+                border-color: #ee4730;
+                height: 50px;
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+        }
+    }
+}
+/*Footer Section Starts Here*/
+.footer-section {
+    position: relative;
+}
+.footer-top , .footer-bottom-area {
+    position: relative;
+    z-index: 1;
+    @extend %flex;
+    justify-content: space-between;
+}
+.footer-bottom-area {
+    flex-wrap: wrap-reverse;
+}
+.footer-top {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    align-items: center;
+    padding-bottom: 15px;
+    >* {
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+    .logo {
+        max-width: 160px;
+        margin-right: 15px;
+        a {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+    .links {
+        @extend %flex;
+        margin: 0 -15px -5px;
+        li {
+            padding: 0 15px 5px;
+            max-width: calc(100% / 3);
+            a {
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $body-color;
+                display: block;
+                img {
+                    max-width: 100%;
+                }
+                &:hover {
+                    color: $theme-color;
+                }
+                @include breakpoint(max-sm) {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+.footer-bottom {
+    padding: 30px 0;
+    .footer-bottom-area {
+        margin-bottom: -25px;
+    }
+    p {
+        margin: 0 !important;
+        a {
+            color: $theme-color;
+        }
+    }
+    .left {
+        margin-bottom: 20px;
+        color: $body-color;
+    }
+    .social-icons {
+        margin-bottom: 12.5px;
+    }
+}
+.social-icons {
+    margin: -7.5px;
+    @extend %flex;
+    li {
+        padding: 7.5px;
+        a {
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            @include border-radius(50%);
+            border: 1px solid rgba(255, 255, 255, .1);
+            color: $white-color;
+            font-size: 14px;
+            &.active, &:hover  {
+                background: $theme-bg;
+                border-color: $theme-color;
+                box-shadow: 0px 10px 10px 0px rgba(132, 141, 156, 0.3);  
+                i {
+                    
+                color: $white-color;
+                }                
+            }
+        }
+    }
+}
+
+.footer-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+        z-index: -1;
+    @media screen and (min-width: 500px) {
+        top: 630px;
+    }
+    overflow: hidden;
+    img {
+        width: 100%;
+        min-width: 992px;
+    }
+}

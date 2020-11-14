@@ -17,7 +17,7 @@ namespace WrinkMe.Services
             shortUrl.OriginalUrl = url;
             shortUrl.DateCreated = DateTime.UtcNow;
             shortUrl.Token = GenerateToken();
-            shortUrl.Value = new Uri($"https://localhost:44377/{shortUrl.Token}");
+            shortUrl.Value = new Uri($"http://wrink.me/{shortUrl.Token}");
             return shortUrl;
         }
 

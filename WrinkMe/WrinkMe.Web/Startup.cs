@@ -14,6 +14,8 @@ using WrinkMe.Domain.Interfaces;
 using WrinkMe.Services;
 using WrinkMe.Web.Data;
 using WrinkMe.Web.Middleware;
+using Microsoft.EntityFrameworkCore;
+using WrinkeMe.Dal;
 
 namespace WrinkMe.Web
 {
@@ -36,6 +38,9 @@ namespace WrinkMe.Web
             services.AddScoped<IUserAgentService, UserAgentService>();
             services.AddTransient<IUrlShorteningService, UrlShorteningService>();
             services.AddSingleton<DummyDb>();
+
+            var cs = Configuration.GetConnectionString("Default");
+            services.AddDbContext<WrinkMeDataContext>(opt => opt.UseSqlServer(cs));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

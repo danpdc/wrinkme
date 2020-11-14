@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
+using WrinkeMe.Dal;
 using WrinkMe.Domain.Interfaces;
 
 namespace WrinkMe.Web.Middleware
@@ -19,7 +21,8 @@ namespace WrinkMe.Web.Middleware
             _next = next;
         }
 
-        public Task Invoke(HttpContext httpContext, IUserAgentService userAgentService, DummyDb db)
+        public async Task Invoke(HttpContext httpContext, IUserAgentService userAgentService,
+            WrinkMeDataContext context)
         {
             var uaHeader = StringValues.Empty;
             httpContext.Request.Headers.TryGetValue("User-Agent", out uaHeader);
@@ -28,15 +31,22 @@ namespace WrinkMe.Web.Middleware
             if (httpContext.Request.Path.ToString().Length == 9)
             {
                 var token = httpContext.Request.Path.ToString().Substring(1);
-                var shortUrl = db.ShortUrls.FirstOrDefault(su => su.Token == token);
+                var shortUrl = context.ShortUrls
+                    .Include(s => s.Requests)
+                    .FirstOrDefault(su => su.Token == token);
                 if (shortUrl != null)
+                {
+                    shortUrl.Requests.Add(parsedUserAgent);
+                    await context.SaveChangesAsync();
                     httpContext.Response.Redirect(shortUrl.OriginalUrl.ToString());
+                }
+                    
                 else
                     httpContext.Response.Redirect(httpContext.Request.Host.ToString());
             }
                 
 
-            return _next(httpContext);
+            await _next(httpContext);
         }
     }
 

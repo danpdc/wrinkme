@@ -16,9 +16,13 @@ namespace WrinkMe.Domain.Models
             Device = device;
             Browser = browser;
         }
+
+        public int Id { get; set; }
         public OS OS { get; set; }
         public Device Device { get; set; }
         public Browser Browser { get; set; }
+        public int ShortUrlId { get; set; }
+        public ShortUrl ShortUrl { get; set; }
 
         public override string ToString()
         {

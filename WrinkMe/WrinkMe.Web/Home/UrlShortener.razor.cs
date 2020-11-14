@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WrinkeMe.Dal;
 using WrinkMe.Domain.Interfaces;
 
 namespace WrinkMe.Web.Home
@@ -12,7 +13,8 @@ namespace WrinkMe.Web.Home
     {
 
         [Inject] public IUrlShorteningService ShorteningService { get; set; }
-        [Inject] public DummyDb DummyDb { get; set; }
+        [Inject] public WrinkMeDataContext DataContext { get; set; }
+        [Parameter] public EventCallback<int> OnShortenedUrl { get; set; }
         private Url Url { get; set; }
         protected override Task OnInitializedAsync()
         {
@@ -20,12 +22,14 @@ namespace WrinkMe.Web.Home
             return base.OnInitializedAsync();
         }
 
-        private void ShortenUrl()
+        private async void ShortenUrl()
         {
             var url = new Uri(Url.Value);
             var shortUrl = ShorteningService.QuickShort(url);
-            DummyDb.ShortUrls.Add(shortUrl);
+            DataContext.ShortUrls.Add(shortUrl);
+            await DataContext.SaveChangesAsync();
             Url.Value = shortUrl.Value.ToString();
+            await OnShortenedUrl.InvokeAsync(1);
         }
     }
 }

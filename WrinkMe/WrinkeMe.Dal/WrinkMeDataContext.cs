@@ -8,7 +8,7 @@ namespace WrinkeMe.Dal
 {
     public class WrinkMeDataContext : DbContext
     {
-        public WrinkMeDataContext(DbContextOptions options) : base(options)
+        public WrinkMeDataContext(DbContextOptions<WrinkMeDataContext> options) : base(options)
         {
         }
 
@@ -21,7 +21,9 @@ namespace WrinkeMe.Dal
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            builder.Entity<UserAgent>().OwnsOne(ua => ua.Browser).ToTable("Browsers");
+            builder.Entity<UserAgent>().OwnsOne(ua => ua.Device).ToTable("Devices");
+            builder.Entity<UserAgent>().OwnsOne(ua => ua.OS).ToTable("OS");
         }
     }
 }

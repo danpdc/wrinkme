@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WrinkeMe.Dal;
 
 namespace WrinkeMe.Dal.Migrations
 {
     [DbContext(typeof(WrinkMeDataContext))]
-    partial class WrinkMeDataContextModelSnapshot : ModelSnapshot
+    [Migration("20201127184523_addOwnedRequestTypes")]
+    partial class addOwnedRequestTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

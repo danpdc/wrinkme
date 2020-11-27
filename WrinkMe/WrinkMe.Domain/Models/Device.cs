@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,6 @@ namespace WrinkMe.Domain.Models
 {
     public class Device
     { 
-        public int Id { get; set; }
         public bool IsBot { get; set; }
         public string Brand { get; set; }
         public string Family { get; set; }

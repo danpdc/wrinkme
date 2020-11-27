@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "WrinkMe.Infrastracture.DbCleanup": {
+      "commandName": "Project"
+    }
+  }
+}

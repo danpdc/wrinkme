@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkMe.Services", "WrinkMe.Services\WrinkMe.Services.csproj", "{1054E697-0516-4E6F-9D8D-979DBF996BD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrinkeMe.Dal", "WrinkeMe.Dal\WrinkeMe.Dal.csproj", "{C32AAE3B-C171-42CF-92A5-D36339249152}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkeMe.Dal", "WrinkeMe.Dal\WrinkeMe.Dal.csproj", "{C32AAE3B-C171-42CF-92A5-D36339249152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrinkMe.Infrastracture.DbCleanup", "WrinkMe.Infrastracture.DbCleanup\WrinkMe.Infrastracture.DbCleanup.csproj", "{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{C32AAE3B-C171-42CF-92A5-D36339249152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C32AAE3B-C171-42CF-92A5-D36339249152}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C32AAE3B-C171-42CF-92A5-D36339249152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{D7D5063A-5DCF-4670-A734-0AEC883BFBDE} = {2D173222-69E2-409F-91D8-0533D9539049}
 		{1054E697-0516-4E6F-9D8D-979DBF996BD7} = {CA3D1CB0-0193-49B5-98EA-E4C7E6AA6C74}
 		{C32AAE3B-C171-42CF-92A5-D36339249152} = {D8D4CEA8-62EF-4915-9EAC-AA708E876365}
+		{2BE80D8F-0388-4BA8-9CDB-040529BBDED5} = {9DE6430F-7BB4-4869-B3AE-1F630415B6B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFC045B8-9050-421F-B429-05D187529904}

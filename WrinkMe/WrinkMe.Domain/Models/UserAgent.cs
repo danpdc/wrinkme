@@ -6,7 +6,8 @@ namespace WrinkMe.Domain.Models
 {
     public class UserAgent
     {
-        public UserAgent()
+        //Private default contrustructor for EF Core
+        private UserAgent()
         {
         }
 
@@ -15,18 +16,21 @@ namespace WrinkMe.Domain.Models
             OS = os;
             Device = device;
             Browser = browser;
+            RequestDate = DateTime.UtcNow;
         }
 
         public int Id { get; set; }
+
         public OS OS { get; set; }
         public Device Device { get; set; }
         public Browser Browser { get; set; }
         public int ShortUrlId { get; set; }
         public ShortUrl ShortUrl { get; set; }
+        public DateTime RequestDate { get; set; }
 
         public override string ToString()
         {
-            return $"{OS.ToString()}; {Device.ToString()}; {Browser.ToString()}";
+            return $"{OS}; {Device}; {Browser}";
         }
     }
 }

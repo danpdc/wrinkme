@@ -1,34 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AzureFunctionsVersion>v3</AzureFunctionsVersion>
   </PropertyGroup>
-
   <ItemGroup>
-    <Compile Remove="Migrations\20201124200459_Configure1to1OnUserAgent.cs" />
-    <Compile Remove="Migrations\20201124200459_Configure1to1OnUserAgent.Designer.cs" />
-    <Compile Remove="Migrations\20201124204701_addUAID.cs" />
-    <Compile Remove="Migrations\20201124204701_addUAID.Designer.cs" />
-    <Compile Remove="Migrations\20201127183757_AddOwnedRequestEntities.cs" />
-    <Compile Remove="Migrations\20201127183757_AddOwnedRequestEntities.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.11" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\WrinkMe.Domain\WrinkMe.Domain.csproj" />
+    <ProjectReference Include="..\WrinkeMe.Dal\WrinkeMe.Dal.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
 </Project>

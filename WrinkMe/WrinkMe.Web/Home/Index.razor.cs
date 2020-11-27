@@ -12,11 +12,15 @@ namespace WrinkMe.Web.Home
     {
         [Inject] public WrinkMeDataContext DataContext { get; set; }
         public int ShortenedUrls { get; set; }
+        public int RequestsPerDay { get; set; }
 
         
         protected override async Task OnInitializedAsync()
         {
             ShortenedUrls = await DataContext.ShortUrls.CountAsync();
+            RequestsPerDay = await DataContext.Requests
+                .Where(r => r.RequestDate >= DateTime.UtcNow.AddHours(-24) && r.RequestDate <= DateTime.UtcNow)
+                .CountAsync();
         }
 
         private void IncreaseShortUrlCount()

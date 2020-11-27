@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,6 @@ namespace WrinkMe.Domain.Models
 {
     public class Browser
     {
-        public int Id { get; set; }
         public string Family { get; set; }
         public string Major { get; set; }
         public string Minor { get; set; }

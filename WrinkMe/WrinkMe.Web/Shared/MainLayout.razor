@@ -1,21 +1,26 @@
 ﻿@inherits LayoutComponentBase
 
-    @*<div class="overlayer" id="overlayer">
+@if (!IsLoaded)
+{
+    <div class="overlayer" id="overlayer">
         <div class="loader">
             <div class="loader-inner"></div>
         </div>
     </div>
     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
-    <div class="overlay"></div>*@
+    <div class="overlay"></div>
+}
 
+else
+{
     <header class="header-section" style="background-color: #2c18b4">
         <div class="container">
             <div class="header-wrapper">
                 @*<div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/logo/logo.png" alt="logo">
-                    </a>
-                </div>*@
+                        <a href="index.html">
+                            <img src="assets/images/logo/logo.png" alt="logo">
+                        </a>
+                    </div>*@
                 <ul class="menu">
                 </ul>
                 <div class="header-bar d-lg-none mr-sm-3">
@@ -31,38 +36,51 @@
 
     @Body
 
-    <footer class="footer-section padding-top" >
-        <div class="footer-bg bg_img" ></div>
+    <footer class="footer-section padding-top">
+        <div class="footer-bg bg_img"></div>
         <div class="footer-bg d-md-block d-none"><img src="assets/images/footer/wave.png" alt="footer"></div>
         <div class="container" style="background-image: url(assets/images/footer/footer-bg.jpg)">
             <div class="footer-bottom">
                 <div class="footer-bottom-area">
                     <div class="left cl-white">
-                        <p>&copy; Copyright 2020 | <a href="http://codewrinkles.com">Codewrinkles</a> By UIAXIS</p>
+                        <p>&copy; Copyright 2020 | <a href="http://codewrinkles.com">Codewrinkles</a></p>
                     </div>
                     <ul class="social-icons">
                         @*<li>
-                            <a href="#0" class="active">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0" class="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0" class="">
-                                <i class="fab fa-pinterest-p"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#0" class="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>*@
+                                <a href="#0" class="active">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>*@
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
+}
+
+
+
+@code {
+    private bool IsLoaded { get; set; } = true;
+
+    //protected override void OnInitialized()
+    //{
+    //    Thread.Sleep(1000);
+    //    IsLoaded = true;
+    //}
+}

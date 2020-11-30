@@ -19,7 +19,7 @@ namespace WrinkMe.Infrastracture.DbCleanup
         }
 
         [FunctionName("DbCleaner")]
-        public async Task Run([TimerTrigger("0 1 * * * ")]TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("15 1 * * * *")]TimerInfo myTimer, ILogger log)
         {
             var requestNumber = await _ctx.Requests
                 .Where(r => r.Device.IsBot == true).CountAsync();

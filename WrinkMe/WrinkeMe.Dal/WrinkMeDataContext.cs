@@ -14,6 +14,8 @@ namespace WrinkeMe.Dal
 
         public DbSet<ShortUrl> ShortUrls { get; set; }
         public DbSet<UserAgent> Requests { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             base.OnConfiguring(builder);

@@ -1,26 +1,26 @@
 ﻿@page "/"
-    <!--============= Banner Section Starts Here =============-->
-    <section class="banner-section">
-        <div class="banner-bg bg_img" style="background-image: url(assets/images/banner/banner-bg.jpg)">
-            <div class="banner-bg-shape"><img src="assets/images/banner/banner-shape.png" alt="banner"></div>
-            <div class="round-1">
-                <img src="assets/images/banner/01.png" alt="banner">
-            </div>
-            <div class="round-2">
-                <img src="assets/images/banner/02.png" alt="banner">
+<!--============= Banner Section Starts Here =============-->
+<section class="banner-section">
+    <div class="banner-bg bg_img" style="background-color: #2c18b4">
+        <div class="banner-bg-shape"><img src="assets/images/banner/banner-shape.png" alt="banner"></div>
+        <div class="round-1">
+            <img src="assets/images/banner/01.png" alt="banner">
+        </div>
+        <div class="round-2">
+            <img src="assets/images/banner/02.png" alt="banner">
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner-content">
+        </div>
+        <div class="banner-form-group">
+            <UrlShortener OnShortenedUrl="IncreaseShortUrlCount"></UrlShortener>
+            <div class="banner-counter">
+                <Counter Count=RequestsPerDay Text="Links clicked per day"></Counter>
+                <Counter Count=ShortenedUrls Text="Shortened links in total"></Counter>
+                <Counter Count=0 Text="Happy registered users"></Counter>
             </div>
         </div>
-        <div class="container">
-            <div class="banner-content">
-            </div>
-            <div class="banner-form-group">
-                <UrlShortener OnShortenedUrl="IncreaseShortUrlCount"></UrlShortener>
-                <div class="banner-counter">
-                    <Counter Count=RequestsPerDay Text="Links clicked per day"></Counter>
-                    <Counter Count=ShortenedUrls Text="Shortened links in total"></Counter>
-                    <Counter Count=0 Text="Happy registered users"></Counter>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--============= Banner Section Ends Here =============-->
+    </div>
+</section>
+<!--============= Banner Section Ends Here =============-->

@@ -11,6 +11,12 @@
     <Compile Remove="Migrations\20201124204701_addUAID.Designer.cs" />
     <Compile Remove="Migrations\20201127183757_AddOwnedRequestEntities.cs" />
     <Compile Remove="Migrations\20201127183757_AddOwnedRequestEntities.Designer.cs" />
+    <Compile Remove="Migrations\20201128192818_addUserProfile.cs" />
+    <Compile Remove="Migrations\20201128192818_addUserProfile.Designer.cs" />
+    <Compile Remove="Migrations\20201128194537_addUserProfileShortUrls.cs" />
+    <Compile Remove="Migrations\20201128194537_addUserProfileShortUrls.Designer.cs" />
+    <Compile Remove="Migrations\20201128194904_AddUserProfileUrls.cs" />
+    <Compile Remove="Migrations\20201128194904_AddUserProfileUrls.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

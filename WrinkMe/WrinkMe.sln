@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkMe.Services", "WrinkMe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkeMe.Dal", "WrinkeMe.Dal\WrinkeMe.Dal.csproj", "{C32AAE3B-C171-42CF-92A5-D36339249152}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrinkMe.Infrastracture.DbCleanup", "WrinkMe.Infrastracture.DbCleanup\WrinkMe.Infrastracture.DbCleanup.csproj", "{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrinkMe.Infrastracture.DbCleanup", "WrinkMe.Infrastracture.DbCleanup\WrinkMe.Infrastracture.DbCleanup.csproj", "{2BE80D8F-0388-4BA8-9CDB-040529BBDED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

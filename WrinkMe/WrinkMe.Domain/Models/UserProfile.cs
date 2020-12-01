@@ -12,5 +12,10 @@ namespace WrinkMe.Domain.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public ICollection<ShortUrl> Wrinks { get; set; }
+
+        public static UserProfile CreateUserProfile(User user)
+        {
+            return new UserProfile { UserId = user.UserId };
+        }
     }
 }

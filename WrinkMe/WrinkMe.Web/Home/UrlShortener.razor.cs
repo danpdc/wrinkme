@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace WrinkMe.Web.Home
     {
 
         [Inject] public IUrlShorteningService ShorteningService { get; set; }
-        [Inject] public WrinkMeDataContext DataContext { get; set; }
+        [Inject] public IDbContextFactory<WrinkMeDataContext> DataContextFactory { get; set; }
         [Parameter] public EventCallback<int> OnShortenedUrl { get; set; }
         private Url Url { get; set; }
         protected override Task OnInitializedAsync()
@@ -26,8 +27,13 @@ namespace WrinkMe.Web.Home
         {
             var url = new Uri(Url.Value);
             var shortUrl = ShorteningService.QuickShort(url);
-            DataContext.ShortUrls.Add(shortUrl);
-            await DataContext.SaveChangesAsync();
+
+            using (var ctx = DataContextFactory.CreateDbContext())
+            {
+                ctx.ShortUrls.Add(shortUrl);
+                await ctx.SaveChangesAsync();
+            }
+
             Url.Value = shortUrl.Value.ToString();
             await OnShortenedUrl.InvokeAsync(1);
         }

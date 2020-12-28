@@ -10,12 +10,17 @@ using WrinkMe.Domain.Utils;
 
 namespace WrinkeMe.Dal.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository, IDisposable
     {
         private readonly WrinkMeDataContext _ctx;
-        public UserRepository(WrinkMeDataContext ctx)
+        public UserRepository(IDbContextFactory<WrinkMeDataContext> ctx)
         {
-            _ctx = ctx;
+            _ctx = ctx.CreateDbContext();
+        }
+
+        public void Dispose()
+        {
+            _ctx.Dispose();
         }
 
         public async Task<UserProfile> Login(string username, string password)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace WrinkMe.Web.Home
 {
     public partial class Index
     {
-        [Inject] public WrinkMeDataContext DataContext { get; set; }
+        [Inject] public IDbContextFactory<WrinkMeDataContext> DataContextFactory { get; set; }
         public int ShortenedUrls { get; set; }
         public int RequestsPerDay { get; set; }
         public int RegisteredUsers { get; set; }
@@ -18,11 +19,14 @@ namespace WrinkMe.Web.Home
         
         protected override async Task OnInitializedAsync()
         {
-            ShortenedUrls = await DataContext.ShortUrls.CountAsync();
-            RequestsPerDay = await DataContext.Requests
-                .Where(r => r.RequestDate >= DateTime.UtcNow.AddHours(-24) && r.RequestDate <= DateTime.UtcNow)
-                .CountAsync();
-            RegisteredUsers = await DataContext.Users.CountAsync();
+            using (var ctx = DataContextFactory.CreateDbContext())
+            {
+                ShortenedUrls = await ctx.ShortUrls.CountAsync();
+                RequestsPerDay = await ctx.Requests
+                    .Where(r => r.RequestDate >= DateTime.UtcNow.AddHours(-24) && r.RequestDate <= DateTime.UtcNow)
+                    .CountAsync();
+                RegisteredUsers = await ctx.Users.CountAsync();
+            }
         }
 
         private void IncreaseShortUrlCount()

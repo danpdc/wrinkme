@@ -36,14 +36,12 @@ namespace WrinkMe.Web
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IUserAgentService, UserAgentService>();
             services.AddTransient<IUrlShorteningService, UrlShorteningService>();
-            services.AddSingleton<DummyDb>();
 
             var cs = Configuration.GetConnectionString("Default");
+            services.AddDbContextFactory<WrinkMeDataContext>(opt => opt.UseSqlServer(cs));
             services.AddDbContext<WrinkMeDataContext>(opt => opt.UseSqlServer(cs));
-            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
